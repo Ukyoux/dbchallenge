@@ -1,5 +1,8 @@
 package com.example.restservice;
 
+/**
+ * Aufbau des BSV Objektes sowie der Getter-Methoden
+ */
 public class Bsv {
 
     private final String plc;
@@ -8,13 +11,16 @@ public class Bsv {
     private final String typKurz;
     private final String typLang;
     private final String betriebszustand;
-
     private final Long datumAb;
     private final Long datumBis;
     private final Long niederlassung;
     private final String regionalbereich;
     private final Long letzteAenderung;
 
+    /**
+     * Konstruktor der Bsv Klasse
+     * @param nextline Array, dass die Header der CSV Datei abbildet
+     */
     public Bsv(String[] nextline) {
         this.plc = nextline[0];
         this.rl100LangName = nextline[2];
@@ -72,5 +78,4 @@ public class Bsv {
     public Long getLetzteAenderung() {
         return letzteAenderung;
     }
-
 }

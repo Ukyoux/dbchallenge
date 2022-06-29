@@ -13,13 +13,19 @@ import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Service zum Abrufen von Betriebsstellen anhand des Betriebsstellen-Codes
+ */
 @Service
 public class BsvService {
     private Map<String, Bsv> data;
+
+    /**
+     * Liest CSV Datei vom Pfad ein und stellt sie als Bsv Objekte in einer HashMap bereit
+     */
     @PostConstruct
     public void init() {
         data = new HashMap<>();
-
         File file = new File("dbchallenge/rest-service/src/main/resources/Data.csv");
 
         try {
@@ -36,6 +42,11 @@ public class BsvService {
         }
     }
 
+    /**
+     * Liefert ein BSV Objekt anhand des Betriebsstellenverzeichnisses zurück
+     * @param code der Betriebsstelle
+     * @return Repräsentation der Betriebsstelle als BSV Objekt
+     */
     public Bsv getBsvByCode(String code) {
         return data.get(code.toUpperCase());
     }
