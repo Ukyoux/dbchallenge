@@ -23,7 +23,7 @@ public class BsvService {
     public void init() {
         data = new HashMap<>();
 
-        File file = new File("rest-service/src/main/resources/Data.csv");
+        File file = new File("dbchallenge/rest-service/src/main/resources/Data.csv");
 
         try
 
@@ -34,7 +34,7 @@ public class BsvService {
             String[] nextline;
             while ((nextline = reader.readNext()) != null) {
                 if (nextline != null) {
-                    data.put(nextline[1], new Bsv(nextline[2], nextline[3], nextline[4]));
+                    data.put(nextline[1], new Bsv(nextline));
 
                 }
             }

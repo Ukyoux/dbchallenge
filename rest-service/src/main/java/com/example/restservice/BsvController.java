@@ -14,7 +14,7 @@ public class BsvController {
         this.bsvService = bsvService;
     }
 
-    @GetMapping("/betriebsstelle/{code}")
+    @GetMapping(value = "/betriebsstelle/{code}")
     public ResponseEntity<Bsv> getData(@PathVariable String code) {
         Bsv bsv = this.bsvService.getBsvByCode(code);
         if (bsv != null) {
